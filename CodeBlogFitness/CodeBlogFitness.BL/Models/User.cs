@@ -2,11 +2,15 @@ namespace CodeBlogFitness.BL.Models;
 
 public class User
 {
+    #region Properties
+
     public string Name { get; }
     public Gender Gender { get; }
     public DateTime BirthDate { get; }
     public double Height { get; set; }
     public double Weight { get; set; }
+
+    #endregion
 
     public User(string name,
         Gender gender,
@@ -14,7 +18,7 @@ public class User
         double height,
         double weight)
     {
-        #region Condition Check
+        #region Conditions Check
 
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentNullException(nameof(name), "User name cannot be null or whitespace.");
@@ -35,4 +39,6 @@ public class User
         Height = height;
         Weight = weight;
     }
+
+    public override string ToString() => Name;
 }
