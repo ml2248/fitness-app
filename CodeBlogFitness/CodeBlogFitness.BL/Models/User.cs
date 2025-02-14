@@ -14,6 +14,8 @@ public class User
         double height,
         double weight)
     {
+        #region Condition Check
+
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentNullException(nameof(name), "User name cannot be null or whitespace.");
         if (gender == null)
@@ -24,6 +26,9 @@ public class User
             throw new ArgumentException("Height cannot be less or equal to zero.", nameof(height));
         if (weight <= 0)
             throw new ArgumentException("Weight cannot be less or equal to zero.", nameof(height));
+
+        #endregion
+
         Name = name;
         Gender = gender;
         BirthDate = birthDate;
